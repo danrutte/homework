@@ -1,0 +1,33 @@
+<html>
+<head>
+    <Title>Graph</Title>
+    <meta charset="utf-8">
+    <h1>Graf</h1>
+    <div style="background:#FF1493; width:100%; height:10px"></div>
+    <link href="login.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <?php
+    $cisla = filter_input (INPUT_GET,"CISLA");
+    $pole = explode(",",$cisla);
+    for ($i=0; $i < count($pole); $i++) {
+        $pole[$i] = intval($pole[$i]);
+    }
+    foreach ($pole as $hodnota) {
+        echo "<p>";
+        for ($i = 0; $i < $hodnota; $i++) {
+            echo "+";
+        }
+        echo "</p>\n";
+    }
+    ?>
+    <form action="graph.php" method"GET">
+        <input type="text" name="vlozte data" value="<?php echo $cisla ?>">
+        <input type="submit" value="vytvořit">
+        <div style="background:#FFD700; width:20%; height:30px">
+            </div>
+        
+        </form>
+    
+    </body>
+</html>
